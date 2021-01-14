@@ -1,21 +1,31 @@
-import tkinter as tk
-from ttkthemes import ThemedTk
+from tkinter import *
 
-class consoleinput():
-    def __init__(self, text):
-        self.root = ThemedTk(theme="Equilux") 
-        self.root.geometry("500x500")
-        self.root.title("Space Calamity")
-        self.label_file_name = tk.Label(self.root, text=text)
-        self.label_file_name.pack()
-        self.entry = tk.Entry(self.root)
-        self.entry.pack()
-        self.entry.focus()
-        self.root.mainloop()
+root = Tk()
 
-    def getinput(self, value):
-        self.get = value
-        self.root.destroy()
-        
+#Button action function
+def myClick():
+    myLabel1 = Label(root, text="")
+    myLabel1 = Label(root, text=myEntry.get())
+    myLabel1.grid(row=0, column=0)
 
-myapp = consoleinput(text="Textinput") 
+root.geometry("800x800")
+
+#Create scrolled text widget
+text_area = ScrolledText(win, wrap=tk.WORD, width=40, height=10, font=("Times New Roman"))
+
+#Create a label widget
+myLabel1 = Label(root)
+myButton = Button(root, text="Enter", command=myClick)
+myEntry = Entry(root)
+
+
+
+
+#Orient widgets
+myLabel1.grid(row=0, column=0)
+myButton.grid(row=1, column=1)
+myEntry.grid(row=1, column=0)
+
+#Run window
+root.mainloop()
+
